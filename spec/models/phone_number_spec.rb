@@ -7,6 +7,10 @@ RSpec.describe PhoneNumber, :type => :model do
     expect(phone_number).to be_valid
   end
 
+  it 'is associated with a person' do
+    expect(phone_number).to respond_to(:person)
+  end
+
   it 'is invalid without a number' do
     phone_number.number = nil
     expect(phone_number).to_not be_valid
